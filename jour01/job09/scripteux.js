@@ -1,0 +1,1 @@
+const numbers = [5,6,10.500]
