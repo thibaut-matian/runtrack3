@@ -41,7 +41,8 @@ function activateKonami(){
     document.body.classList.add("konami-activated");
 
     let titre = document.createElement("h1");
-    titre.textContent = "KONAMI CODE ACTIVé ! ";
+    titre.textContent = "KONAMI CODE ACTIV\u00C9!";  
+    // titre.innerHTML = "KONAMI CODE ACTIV&Eacute;!";  
     titre.style.textAlign = "center";
     titre.style.fontSize= "5rem";
     document.body.appendChild(titre);
