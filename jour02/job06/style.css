@@ -1,0 +1,10 @@
+body { 
+    background-color:white;
+    color: black;
+}
+
+body.konami-activated{
+    background-color: white;
+    color: #007bff;
+}
+

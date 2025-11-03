@@ -1,0 +1,22 @@
+/* définir une hauteur minimale pour le body */
+body {
+    min-height: 4096px;
+    margin: 0;
+    padding: 0 0 60px 0; /* espace en bas pour que le contenu ne soit pas caché par le footer */
+    box-sizing: border-box;
+}
+
+/* footer fixé en bas, pleine largeur */
+footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    background: #222;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
