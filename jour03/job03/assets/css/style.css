@@ -1,0 +1,59 @@
+* { box-sizing: border-box; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px;
+  color: #222;
+}
+
+/* titre */
+h1 {
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+/* conteneur principal centré */
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* plateau du taquin : position relative pour que .tile soit position:absolute à l'intérieur */
+#puzzle {
+  width: 300px;               /* adapte si tes images sont d'une autre taille */
+  height: 300px;
+  margin: 16px auto 0;       /* espace au dessus pour ne pas chevaucher le titre */
+  position: relative;
+  border: 2px solid #ddd;
+  background: #fff;
+}
+
+/* une tuile */
+.tile {
+  width: 100px;
+  height: 100px;
+  position: absolute;        /* positionnée par rapport à #puzzle */
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid #eee;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  transition: left .15s, top .15s;
+}
+
+/* contrôles sous le plateau */
+#controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+#message {
+  font-weight: 600;
+}
+
+#message.win { color: green; }
+#message.lose { color: red; }
