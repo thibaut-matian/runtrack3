@@ -1,0 +1,57 @@
+/* layout de base */
+* { box-sizing: border-box; }
+body {
+  margin: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f6f8f9;
+  color: #123;
+}
+
+/* conteneur des sections */
+.board {
+  width: min(1000px, 96%);
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  padding: 18px;
+  border: 2px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* style commun aux sections */
+.section {
+  background: #88c1d0; /* couleur demandée */
+  height: 90px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #083;
+}
+
+/* classes gérées par le JS -> disposition des éléments */
+/* >= 1600px : ligne unique de 4 éléments */
+.board.layout-large {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* 768px - 1599px : grille 2x2 */
+.board.layout-medium {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* <= 767px : colonne unique */
+.board.layout-small {
+  grid-template-columns: 1fr;
+}
+
+/* indicateur d'état */
+.info {
+  width: min(1000px, 96%);
+  margin: 12px auto 0;
+  text-align: center;
+  color: #444;
+  font-weight: 600;
+}
