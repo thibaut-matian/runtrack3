@@ -27,19 +27,25 @@ if (isset($_SESSION['user_prenom'])) {
                 <input type="email" id="email" name="email">
                 <span class="error-message" id="error-email"></span>
             </div>
-
             <div class="form-group">
                 <label for="password">Mot de passe</label>
                 <input type="password" id="password" name="password">
                 <span class="error-message" id="error-password"></span>
             </div>
 
+            <div class="form-group toggle-password">
+                <input type="checkbox" id="showPasswordToggle">
+                <label for="showPasswordToggle">Afficher le mot de passe</label>
+            </div>
             <button type="submit">Se connecter</button>
         </form>
         <p style="text-align: center; margin-top: 10px;">
             Pas de compte ? <a href="inscription.php">Inscrivez-vous</a>
         </p>
     </div>
+    
+    
+    <script src = "connexion.js"></script>
 
 </body>
 </html>
