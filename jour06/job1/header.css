@@ -1,0 +1,66 @@
+/* header / nav (desktop visible, mobile hamburger) */
+.site-header { background:#fff; border-bottom:1px solid #eee; }
+.site-header .wrap { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; position:relative; }
+
+/* nav links (desktop) */
+.main-nav .nav-links { display:flex; gap:16px; list-style:none; margin:0; padding:0; }
+.main-nav a { text-decoration:none; color:#222; padding:6px 8px; border-radius:4px; }
+
+/* hamburger hidden by default */
+.menu-toggle { display:none; background:transparent; border:0; cursor:pointer; }
+
+/* small screens: hide links, show hamburger */
+@media (max-width:767px) {
+  .main-nav .nav-links { display:none; flex-direction:column; position:absolute; right:16px; top:60px; background:#fff; padding:10px; border:1px solid #e6e6e6; border-radius:6px; box-shadow:0 8px 20px rgba(0,0,0,0.08); }
+  .menu-toggle { display:inline-flex; align-items:center; justify-content:center; width:40px; height:36px; }
+  .main-nav.open .nav-links { display:flex; }
+}
+
+/* hover / focus pour rendre le bouton visible */
+.menu-toggle:focus,
+.menu-toggle:hover {
+  outline: 2px solid rgba(136,193,208,0.35);
+}
+
+/* small screens: montrer le bouton */
+@media (max-width: 767px) {
+  .menu-toggle { display: inline-flex; align-items:center; justify-content:center; }
+}
+
+/* icon */
+.menu-icon {
+  width: 28px;       /* largeur voulue */
+  height: auto;      /* conserve le ratio */
+  max-width: 100%;
+  display: block;
+}
+
+/* au besoin, forcer la taille sur l'img dans le bouton */
+.menu-toggle img.menu-icon {
+  width: 28px;
+  height: auto;
+}
+
+/* sur petits écrans : placer le bouton hamburger à droite, centré verticalement */
+@media (max-width: 767px) {
+  .site-header .wrap { position: relative; }
+
+  .menu-toggle {
+    display: inline-flex;
+    position: absolute;
+    right: 16px;                /* distance depuis le bord droit */
+    top: 50%;                   /* centré verticalement dans la barre */
+    transform: translateY(-50%);
+    z-index: 50;                /* au-dessus du contenu */
+    background: transparent;
+    border: 0;
+    padding: 6px;
+    border-radius: 6px;
+  }
+
+  /* placer le menu déroulant juste sous le bouton */
+  .main-nav .nav-links {
+    right: 16px;                /* même alignement que le bouton */
+    top: calc(50% + 12px);      
+  }
+}

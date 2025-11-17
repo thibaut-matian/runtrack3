@@ -4,9 +4,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Responsive Stylesheet (largeur écran)</title>
+
+  <!-- styles communs au header / nav -->
+  <link rel="stylesheet" href="header.css">
+ 
+
+  <!-- feuille thème (changée par script.js) -->
   <link id="theme-link" rel="stylesheet" href="style1.css">
 </head>
 <body>
+  <header class="site-header">
+    <div class="wrap">
+      <div class="logo">Mon site</div>
+
+      <button id="menu-toggle" class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <img src="assets/img/burger-menu-svgrepo-com.svg" alt="Menu" class="menu-icon" />
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">Présentation</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <main>
     <h1>Demo : feuille de style selon la largeur de l'écran</h1>
     <p>La feuille de style liée change automatiquement en fonction de la largeur de la fenêtre.</p>
@@ -17,7 +41,8 @@
       <li>style4.css : largeur &lt; 1280px</li>
     </ul>
   </main>
+
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
-</html>
+

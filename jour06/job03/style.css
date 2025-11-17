@@ -55,3 +55,41 @@ body {
   color: #444;
   font-weight: 600;
 }
+
+/* taille du logo burger */
+.menu-icon {
+  width: 28px;
+  height: auto;
+  display: block;
+}
+
+/* bouton : centrage de l'icône et taille cohérente */
+#mobile-burger {
+  padding: 6px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+}
+
+/* s'assurer que le navbar a une position de référence */
+.navbar { position: relative; z-index: 10; }
+
+/* sur petits/medium écrans (où lg:hidden laisse le burger visible),
+   on place le .navbar-end (contenant le burger) en absolute à droite */
+@media (max-width: 1023px) {
+  .navbar-end {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+  }
+
+  /* éviter chevauchement du centre du navbar */
+  .navbar-center { padding-right: 60px; } /* ajuste si nécessaire */
+}

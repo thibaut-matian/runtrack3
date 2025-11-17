@@ -5,9 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Background responsive</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
+  <header>
+  <div class="navbar bg-base-100 shadow-sm">
+    <div class="navbar-start">
+      <a class="btn btn-ghost normal-case text-xl">MaMarque</a>
+    </div>
+
+    <!-- menu desktop -->
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Présentation</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="navbar-end hidden lg:flex gap-2">
+      <a class="btn btn-ghost">Connexion</a>
+      <a class="btn btn-primary">S'inscrire</a>
+    </div>
+
+    <!-- burger / dropdown mobile -->
+    <div class="navbar-end lg:hidden">
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-ghost">
+          <!-- icône burger -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round"
+               stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </label>
+        <ul tabindex="0"
+            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">Présentation</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
   <main>
+
     <h1>Demo : couleur d'arrière-plan selon la largeur</h1>
     <p id="etat">Largeur : -- px — plage : --</p>
   </main>

@@ -4,9 +4,43 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Responsive Sections (JS)</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
+  <header>
+    <div class="navbar bg-base-100 shadow-sm">
+      <div class="navbar-start">
+        <a class="btn btn-ghost normal-case text-xl">MaMarque</a>
+      </div>
+
+      
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">Présentation</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="navbar-end lg:hidden">
+        <div class="dropdown">
+          
+          <button id="mobile-burger" class="btn btn-ghost" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
+            <img src="assets/img/burger-menu-svgrepo-com.svg" alt="Menu" class="menu-icon" />
+          </button>
+
+          <ul id="mobile-menu" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 hidden" tabindex="0">
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Présentation</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
   <main id="board" class="board">
     <section class="section">Section 1</section>
     <section class="section">Section 2</section>
