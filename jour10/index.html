@@ -1,14 +1,14 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Site Repro</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body>
+<body class="min-h-screen">
     <div class="navbar bg-base-100 shadow-sm">
         <div class="navbar-start">
             <div class="dropdown">
@@ -20,8 +20,8 @@
                     </svg>
                 </div>
                 <ul tabindex="-1"
-                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                    <li><a>Homepage</a></li>
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
+                    <li><a href="https://laplateforme.io/">Homepage</a></li>
                     <li><a>Portfolio</a></li>
                     <li><a>About</a></li>
                 </ul>
@@ -51,145 +51,182 @@
         </div>
     </div>
 
-    <h1 class="text-center text-6xl m-7">LaPlateforme_</h1>
+    <h1 class="text-center text-4xl sm:text-5xl md:text-6xl m-7">LaPlateforme_</h1>
 
-    <div class="flex">
-        <div class="card bg-base-100 w-96 shadow-sm h-fit">
-            <figure class="px-10 pt-10">
-                <img src="assets/img/que-mange-un-papillon.jpg.webp" alt="Shoes" class="rounded-xl" />
-            </figure>
-            <div class="card-body items-center text-center">
-                <h2 class="card-title">Un Papillon</h2>
-                <p>Un papillon, c'est un peu comme une chenille, mais avec des ailes.
-                    Ne pas ingérer
-                </p>
-                <div class="card-actions">
-                    <button class="btn btn-primary">Commander votre propre papillon</button>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="px-6 bg-gray-100 rounded-lg max-w-3xl mx-6 p-8">
-            <h2 class="text-4xl md:text-5xl font-light text-gray-800 mb-6">Bonjour, monde !</h2>
-
-            <p class="text-gray-600 mb-4 leading-relaxed">
-                Il existe plusieurs visions du terme&nbsp;:&nbsp;<br>
-                le monde est la matière, l'espace et les phénomènes qui nous sont accessibles par les sens, l'expérience
-                ou la raison.
-            </p>
-
-            <p class="text-gray-600 mb-4 leading-relaxed">
-                Le sens le plus courant désigne notre planète la Terre, avec ses habitants et son environnement plus ou
-                moins naturel.
-            </p>
-
-            <hr class="border-t border-gray-300 my-6">
-
-            <p class="text-sm italic text-gray-600">
-                Le sens étendu désigne l'univers dans son ensemble.
-            </p>
-
-            <div class="flex items-center justify-between mt-3">
-                <button class="btn btn-error">Rebooter le Monde</button>
-
-                <div class="join">
-                    <input class="join-item btn btn-square" type="radio" name="options" aria-label="1"
-                        checked="checked" />
-                    <input class="join-item btn btn-square" type="radio" name="options" aria-label="2" />
-                    <input class="join-item btn btn-square" type="radio" name="options" aria-label="3" />
-                    <input class="join-item btn btn-square" type="radio" name="options" aria-label="4" />
-                </div>
-            </div>
-        </div>
-
-        <ul class="menu bg-base-200 w-56">
-            <li><a>Limbes</a></li>
-            <li><a>Luxure</a></li>
-            <li><a>Gourmandise</a></li>
-            <li><a>Avarice</a></li>
-            <li><a>Colere</a></li>
-            <li><a>Heresie</a></li>
-            <li><a>Violence</a></li>
-            <li><a>Ruse et Tromperie</a></li>
-            <li><a>Trahison</a></li>
-            <li><a>Internet Explorer</a></li>
-        </ul>
-    </div>
-
-
-
-    <div class="w-full flex justify-center mt-6">
-        <div class="w-1/2 max-w-md flex flex-col items-end">
-            <p class="mb-2 text-sm">Installation de IA 9000</p>
-            <input type="range" min="0" max="100" value="40" class="range w-full" />
-        </div>
-    </div>
-
-    <div class="flex justify-between">
-        <div class="w-full max-w-md mx-auto my-6">
-            <div class="card bg-base-200 p-6 shadow-sm">
-                <h3 class="text-lg font-medium mb-4">Recevez votre copie gratuite d'internet 2 !</h3>
-
-                <form action="index.html" method="post" class="space-y-3">
-                    <div class="form-control">
-                        <label class="label"><span class="label-text">Login</span></label>
-                        <input type="text" name="login" placeholder="Login" class="input input-bordered w-full" />
-                    </div>
-
-                    <div class="form-control">
-                        <label class="label"><span class="label-text">Mot de Passe</span></label>
-                        <input type="password" name="password" placeholder="Mot de Passe"
-                            class="input input-bordered w-full" />
-                    </div>
-
-                    <div class="form-control">
-                        <label class="label"><span class="label-text">Email</span></label>
-                        <div class="input-group">
-                            <input type="email" name="email" placeholder="votre@email.com"
-                                class="input input-bordered w-full" />
-                            <span class="bg-base-300">@example.com</span>
+    <main class="container mx-auto px-4">
+        <!-- Zone principale en 1 colonne (mobile) puis 3 colonnes (md+) -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <!-- Colonne gauche -->
+            <article class="md:col-span-3">
+                <div class="card bg-base-100 shadow-sm h-fit">
+                    <figure class="px-4 pt-4">
+                        <img src="assets/img/que-mange-un-papillon.jpg.webp" alt="Papillon"
+                            class="rounded-xl w-full h-auto object-cover" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">Un Papillon</h2>
+                        <p>Un papillon, c'est un peu comme une chenille, mais avec des ailes.
+                            Ne pas ingérer
+                        </p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" id="btnAcheterPapillon">Commander votre propre
+                                papillon</button>
                         </div>
                     </div>
+                </div>
+            </article>
 
-                    <div class="form-control">
-                        <label class="label"><span class="label-text">URL des Internets 2 et 2.1 Beta</span></label>
-                        <div class="input-group">
-                            <input type="text" name="url" placeholder="https://..."
-                                class="input input-bordered w-full" />
-                            <span class="bg-base-300">.00</span>
+            <!-- Colonne centrale -->
+            <section class="md:col-span-6">
+                <div class="px-4 bg-gray-100 rounded-lg p-6 md:p-8">
+                    <h2 class="text-3xl md:text-5xl font-light text-gray-800 mb-6">Bonjour, monde !</h2>
+                    <div id="jumbotronText" class="transition-opacity duration-300 ease-in-out opacity-100">
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Il existe plusieurs visions du terme&nbsp;:&nbsp;<br>
+                            le monde est la matière, l'espace et les phénomènes qui nous sont accessibles par les sens,
+                            l'expérience
+                            ou la raison.
+                        </p>
+
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Le sens le plus courant désigne notre planète la Terre, avec ses habitants et son
+                            environnement
+                            plus ou
+                            moins naturel.
+                        </p>
+
+                        <hr class="border-t border-gray-300 my-6">
+
+                        <p class="text-sm italic text-gray-600">
+                            Le sens étendu désigne l'univers dans son ensemble.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-between gap-3 mt-3">
+                        <button class="btn btn-error" id="btnRebooter">Rebooter le Monde</button>
+                        <button class="btn" id="btnReset">Remettre le texte</button>
+                        <div class="join">
+                            <input class="join-item btn btn-square" type="radio" name="options" aria-label="1"
+                                checked="checked" />
+                            <input class="join-item btn btn-square" type="radio" name="options" aria-label="2" />
+                            <input class="join-item btn btn-square" type="radio" name="options" aria-label="3" />
+                            <input class="join-item btn btn-square" type="radio" name="options" aria-label="4" />
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <div class="form-control">
-                        <label class="label"><span class="label-text">Nom du Portefeuille</span></label>
-                        <input type="text" name="wallet" placeholder="DogeCoin" class="input input-bordered w-full" />
-                    </div>
+            <!-- Colonne droite -->
+            <aside class="md:col-span-3">
+                <ul class="menu bg-base-200 rounded-box w-full">
+                    <li><a>Limbes</a></li>
+                    <li><a>Luxure</a></li>
+                    <li><a>Gourmandise</a></li>
+                    <li><a>Avarice</a></li>
+                    <li><a>Colere</a></li>
+                    <li><a>Heresie</a></li>
+                    <li><a>Violence</a></li>
+                    <li><a>Ruse et Tromperie</a></li>
+                    <li><a>Trahison</a></li>
+                    <li><a>Internet Explorer</a></li>
+                </ul>
+            </aside>
+        </section>
 
-                    <div class="flex items-center justify-between mt-4">
-                        <button type="submit" class="btn btn-primary">Recevoir ma copie</button>
-                        <span class="text-xs text-gray-500">Confidentialité garantie</span>
-                    </div>
-                </form>
+        <!-- Range -->
+        <section class="w-full flex justify-center mt-6 px-1">
+            <div class="w-full md:w-1/2 max-w-md flex flex-col items-end">
+                <p class="mb-2 text-sm">Installation de IA 9000</p>
+                <input type="range" min="0" max="100" value="40" class="range w-full" />
+            </div>
+        </section>
+
+        <!-- Formulaires: pile en mobile, côte à côte en md+ -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-6 my-6">
+            <div class="md:col-span-8">
+                <div class="card bg-base-200 p-6 shadow-sm">
+                    <h3 class="text-lg font-medium mb-4">Recevez votre copie gratuite d'internet 2 !</h3>
+
+                    <form action="index.html" method="post" class="space-y-3">
+                        <div class="form-control">
+                            <label class="label"><span class="label-text">Login</span></label>
+                            <input type="text" name="login" placeholder="Login" class="input input-bordered w-full" />
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label"><span class="label-text">Mot de Passe</span></label>
+                            <input type="password" name="password" placeholder="Mot de Passe"
+                                class="input input-bordered w-full" />
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label"><span class="label-text">Email</span></label>
+                            <div class="input-group">
+                                <input type="email" name="email" placeholder="votre@email.com"
+                                    class="input input-bordered w-full" />
+                                <span class="bg-base-300">@example.com</span>
+                            </div>
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label"><span class="label-text">URL des Internets 2 et 2.1 Beta</span></label>
+                            <div class="input-group">
+                                <input type="text" name="url" placeholder="https://..."
+                                    class="input input-bordered w-full" />
+                                <span class="bg-base-300">.00</span>
+                            </div>
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label"><span class="label-text">Nom du Portefeuille</span></label>
+                            <input type="text" name="wallet" placeholder="DogeCoin"
+                                class="input input-bordered w-full" />
+                        </div>
+
+                        <div class="flex items-center justify-between mt-4">
+                            <button type="submit" class="btn btn-primary">Recevoir ma copie</button>
+                            <span class="text-xs text-gray-500">Confidentialité garantie</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="md:col-span-4">
+                <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border p-4">
+                    <legend class="fieldset-legend">Login</legend>
+
+                    <label class="label">Email</label>
+                    <input type="email" class="input w-full" placeholder="Email" />
+
+                    <label class="label">Password</label>
+                    <input type="password" class="input w-full" placeholder="Password" />
+
+                    <label class="label cursor-pointer flex items-center gap-2">
+                        <input type="checkbox" checked="checked" class="checkbox" />
+                        <span class="label-text">Check me out</span>
+                    </label>
+                    <button class="btn btn-active btn-success w-full">Success</button>
+                </fieldset>
+            </div>
+        </section>
+    </main>
+    <div id="modalPapillon" role="dialog" aria-modal="true" aria-hidden="true"
+        class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center z-50">
+
+        <div class="bg-white p-6 rounded-lg shadow-xl max-w-sm mx-auto">
+            <h3 class="text-xl font-bold mb-4 text-center">🦋 Confirmation d'Achat</h3>
+            <p class="mb-6 text-gray-700">Votre papillon sera expédié sous 48h. Prêt à confirmer ?</p>
+            <div class="flex justify-end space-x-3">
+                <button class="btn btn-ghost" id="fermerModalePapillon">Annuler</button>
+                <button class="btn btn-success">Confirmer l'achat</button>
             </div>
         </div>
 
-        <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-            <legend class="fieldset-legend">Login</legend>
-
-            <label class="label">Email</label>
-            <input type="email" class="input" placeholder="Email" />
-
-            <label class="label">Password</label>
-            <input type="password" class="input" placeholder="Password" />
-            <label class="label cursor-pointer flex items-center gap-2">
-                <input type="checkbox" checked="checked" class="checkbox" />
-                <span class="label-text">Check me out</span>
-            </label>
-            <button class="btn btn-active btn-success">Success</button>
-        </fieldset>
     </div>
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawR8zM0rR6D85w+lE51NnJd0aNq/Q4W4S20=" crossorigin="anonymous"></script> -->
 
+    <script src="script.js"></script>
 </body>
+
 
 </html>
