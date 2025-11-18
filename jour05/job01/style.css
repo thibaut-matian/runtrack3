@@ -59,3 +59,19 @@ button:hover {
     font-weight: normal; /* Pas besoin que ce label soit en gras */
     cursor: pointer;
 }
+
+/* Le texte de l'erreur en rouge et un peu plus petit */
+.error-message {
+    color: #e74c3c; /* Un rouge doux */
+    font-size: 0.85em;
+    font-weight: bold;
+    display: block; /* Force le message à passer à la ligne si besoin */
+    margin-top: 5px;
+    min-height: 20px; /* Réserve la place pour éviter que le formulaire ne "saute" */
+}
+
+/* On ajoute une classe pour colorer la bordure de l'input en rouge */
+input.input-error {
+    border: 2px solid #e74c3c;
+    background-color: #fce4e4; /* Fond très léger rouge */
+}

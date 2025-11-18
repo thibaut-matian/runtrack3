@@ -1,0 +1,195 @@
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Repro</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div class="navbar bg-base-100 shadow-sm">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h7" />
+                    </svg>
+                </div>
+                <ul tabindex="-1"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                    <li><a>Homepage</a></li>
+                    <li><a>Portfolio</a></li>
+                    <li><a>About</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="navbar-center">
+            <a class="btn btn-ghost text-xl">LPTF</a>
+        </div>
+        <div class="navbar-end">
+            <button class="btn btn-ghost btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </button>
+            <button class="btn btn-ghost btn-circle">
+                <div class="indicator">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                    <span class="badge badge-xs badge-primary indicator-item"></span>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <h1 class="text-center text-6xl m-7">LaPlateforme_</h1>
+
+    <div class="flex">
+        <div class="card bg-base-100 w-96 shadow-sm h-fit">
+            <figure class="px-10 pt-10">
+                <img src="assets/img/que-mange-un-papillon.jpg.webp" alt="Shoes" class="rounded-xl" />
+            </figure>
+            <div class="card-body items-center text-center">
+                <h2 class="card-title">Un Papillon</h2>
+                <p>Un papillon, c'est un peu comme une chenille, mais avec des ailes.
+                    Ne pas ingérer
+                </p>
+                <div class="card-actions">
+                    <button class="btn btn-primary">Commander votre propre papillon</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="px-6 bg-gray-100 rounded-lg max-w-3xl mx-6 p-8">
+            <h2 class="text-4xl md:text-5xl font-light text-gray-800 mb-6">Bonjour, monde !</h2>
+
+            <p class="text-gray-600 mb-4 leading-relaxed">
+                Il existe plusieurs visions du terme&nbsp;:&nbsp;<br>
+                le monde est la matière, l'espace et les phénomènes qui nous sont accessibles par les sens, l'expérience
+                ou la raison.
+            </p>
+
+            <p class="text-gray-600 mb-4 leading-relaxed">
+                Le sens le plus courant désigne notre planète la Terre, avec ses habitants et son environnement plus ou
+                moins naturel.
+            </p>
+
+            <hr class="border-t border-gray-300 my-6">
+
+            <p class="text-sm italic text-gray-600">
+                Le sens étendu désigne l'univers dans son ensemble.
+            </p>
+
+            <div class="flex items-center justify-between mt-3">
+                <button class="btn btn-error">Rebooter le Monde</button>
+
+                <div class="join">
+                    <input class="join-item btn btn-square" type="radio" name="options" aria-label="1"
+                        checked="checked" />
+                    <input class="join-item btn btn-square" type="radio" name="options" aria-label="2" />
+                    <input class="join-item btn btn-square" type="radio" name="options" aria-label="3" />
+                    <input class="join-item btn btn-square" type="radio" name="options" aria-label="4" />
+                </div>
+            </div>
+        </div>
+
+        <ul class="menu bg-base-200 w-56">
+            <li><a>Limbes</a></li>
+            <li><a>Luxure</a></li>
+            <li><a>Gourmandise</a></li>
+            <li><a>Avarice</a></li>
+            <li><a>Colere</a></li>
+            <li><a>Heresie</a></li>
+            <li><a>Violence</a></li>
+            <li><a>Ruse et Tromperie</a></li>
+            <li><a>Trahison</a></li>
+            <li><a>Internet Explorer</a></li>
+        </ul>
+    </div>
+
+
+
+    <div class="w-full flex justify-center mt-6">
+        <div class="w-1/2 max-w-md flex flex-col items-end">
+            <p class="mb-2 text-sm">Installation de IA 9000</p>
+            <input type="range" min="0" max="100" value="40" class="range w-full" />
+        </div>
+    </div>
+
+    <div class="flex justify-between">
+        <div class="w-full max-w-md mx-auto my-6">
+            <div class="card bg-base-200 p-6 shadow-sm">
+                <h3 class="text-lg font-medium mb-4">Recevez votre copie gratuite d'internet 2 !</h3>
+
+                <form action="index.html" method="post" class="space-y-3">
+                    <div class="form-control">
+                        <label class="label"><span class="label-text">Login</span></label>
+                        <input type="text" name="login" placeholder="Login" class="input input-bordered w-full" />
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label"><span class="label-text">Mot de Passe</span></label>
+                        <input type="password" name="password" placeholder="Mot de Passe"
+                            class="input input-bordered w-full" />
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label"><span class="label-text">Email</span></label>
+                        <div class="input-group">
+                            <input type="email" name="email" placeholder="votre@email.com"
+                                class="input input-bordered w-full" />
+                            <span class="bg-base-300">@example.com</span>
+                        </div>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label"><span class="label-text">URL des Internets 2 et 2.1 Beta</span></label>
+                        <div class="input-group">
+                            <input type="text" name="url" placeholder="https://..."
+                                class="input input-bordered w-full" />
+                            <span class="bg-base-300">.00</span>
+                        </div>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label"><span class="label-text">Nom du Portefeuille</span></label>
+                        <input type="text" name="wallet" placeholder="DogeCoin" class="input input-bordered w-full" />
+                    </div>
+
+                    <div class="flex items-center justify-between mt-4">
+                        <button type="submit" class="btn btn-primary">Recevoir ma copie</button>
+                        <span class="text-xs text-gray-500">Confidentialité garantie</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+            <legend class="fieldset-legend">Login</legend>
+
+            <label class="label">Email</label>
+            <input type="email" class="input" placeholder="Email" />
+
+            <label class="label">Password</label>
+            <input type="password" class="input" placeholder="Password" />
+            <label class="label cursor-pointer flex items-center gap-2">
+                <input type="checkbox" checked="checked" class="checkbox" />
+                <span class="label-text">Check me out</span>
+            </label>
+            <button class="btn btn-active btn-success">Success</button>
+        </fieldset>
+    </div>
+
+</body>
+
+</html>
