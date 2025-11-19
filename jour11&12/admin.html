@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - LaPlateforme_</title>
+    <link rel="icon" type="image/png" href="assets/img/laptop-svgrepo-com.png">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-800 via-slate-600 to-slate-900">
+
+    <nav class="navbar bg-slate-900/80 backdrop-blur-md shadow-md fixed top-0 z-50 text-white">
+        <div class="flex-1">
+            <a class="btn btn-ghost text-xl text-blue-400">LaPlateforme_ <span class="text-white font-normal opacity-70">Admin</span></a>
+        </div>
+        <div class="flex-none">
+            <span id="admin-role-badge" class="badge badge-primary mr-4">Role</span>
+            <button id="logout-btn" class="btn btn-ghost btn-sm text-error">Déconnexion</button>
+        </div>
+    </nav>
+
+    <main class="pt-24 px-4 max-w-7xl mx-auto pb-10 space-y-8">
+
+        <section class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 shadow-xl">
+            <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                📅 Validations des Présences
+            </h2>
+            <div class="overflow-x-auto">
+                <table class="table text-white">
+                    <thead>
+                        <tr class="text-slate-300 border-b border-white/20">
+                            <th>Jour</th>
+                            <th>Étudiant</th>
+                            <th>Statut</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="presence-table-body">
+                        </tbody>
+                </table>
+                <p id="no-presence-msg" class="text-center text-gray-400 py-4 hidden">Aucune demande en attente.</p>
+            </div>
+        </section>
+
+        <section id="admin-users-section" class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 shadow-xl hidden">
+            <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                👥 Gestion des Droits
+            </h2>
+            <div class="overflow-x-auto">
+                <table class="table text-white">
+                    <thead>
+                        <tr class="text-slate-300 border-b border-white/20">
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Rôle Actuel</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-table-body">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
