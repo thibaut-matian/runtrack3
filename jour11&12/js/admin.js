@@ -67,11 +67,11 @@ function renderPresenceList() {
             
             tr.innerHTML = `
                 <td class="font-bold text-blue-300">Jour ${dayNumber}</td>
-                <td>${email}</td>
+                <td>${escapeHTML(email)}</td>
                 <td><span class="badge badge-warning badge-sm">En attente</span></td>
                 <td>
                     <button onclick="validatePresence(this)" class="btn btn-success btn-xs text-white">Accepter</button>
-                    <button onclick="rejectPresence('${dayKey}', '${email}')" class="btn btn-error btn-xs text-white">Refuser</button>
+                    <button onclick="rejectPresence('${dayKey}', '${escapeHTML(email)}')" class="btn btn-error btn-xs text-white">Refuser</button>
                 </td>
             `;
             tbody.appendChild(tr);
@@ -126,16 +126,16 @@ function renderUsersList() {
         let actionButtons = '';
         if (!isSelf) {
             actionButtons = `
-                <button onclick="changeUserRole('${user.email}', 'moderator')" class="btn btn-xs btn-info">Mettre Modo</button>
-                <button onclick="changeUserRole('${user.email}', 'student')" class="btn btn-xs btn-ghost border-white/20">Mettre Élève</button>
+                <button onclick="changeUserRole('${escapeHTML(user.email)}', 'moderator')" class="btn btn-xs btn-info">Mettre Modo</button>
+                <button onclick="changeUserRole('${escapeHTML(user.email)}', 'student')" class="btn btn-xs btn-ghost border-white/20">Mettre Élève</button>
             `;
         } else {
             actionButtons = `<span class="opacity-50 text-xs">C'est vous</span>`;
         }
 
         tr.innerHTML = `
-            <td class="font-bold">${user.prenom} ${user.nom}</td>
-            <td class="opacity-70">${user.email}</td>
+            <td class="font-bold">${escapeHTML(user.prenom)} ${escapeHTML(user.nom)}</td>
+            <td class="opacity-70">${escapeHTML(user.email)}</td>
             <td><span class="badge badge-outline text-white">${user.role}</span></td>
             <td class="flex gap-2">${actionButtons}</td>
         `;
@@ -155,3 +155,15 @@ window.changeUserRole = function(targetEmail, newRole) {
         alert(`Rôle de ${targetEmail} changé en ${newRole}`);
     }
 };
+
+// Fonction de sécurité pour éviter les failles XSS
+function escapeHTML(str) {
+    return str.replace(/[&<>'"]/g, 
+        tag => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            "'": '&#39;',
+            '"': '&quot;'
+        }[tag]));
+}

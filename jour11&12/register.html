@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - LaPlateforme_</title>
+    <link rel="icon" type="image/png" href="assets/img/laptop-svgrepo-com.png">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-blue-500 via-purple-400 to-cyan-300 flex flex-col justify-center items-center">
+
+    <div class="max-w-md w-full px-4">
+        <form id="registerForm" class="relative border border-white/20 rounded-2xl p-6 backdrop-blur-md bg-gradient-to-br from-blue-400/30 via-blue-200/20 to-white/10 shadow-xl">
+            <h2 class="text-2xl text-center text-blue-900 font-bold mb-4">Créer un compte</h2>
+
+            <div class="flex gap-2">
+                <div class="w-1/2">
+                    <label class="label text-blue-900/80 font-medium">Prénom</label>
+                    <input type="text" id="prenom" required class="input input-bordered w-full bg-white/40 border-white/30 text-blue-900 placeholder:text-blue-700/50" placeholder="Jean" />
+                </div>
+                <div class="w-1/2">
+                    <label class="label text-blue-900/80 font-medium">Nom</label>
+                    <input type="text" id="nom" required class="input input-bordered w-full bg-white/40 border-white/30 text-blue-900 placeholder:text-blue-700/50" placeholder="Dupont" />
+                </div>
+            </div>
+
+            <label class="label text-blue-900/80 font-medium mt-2">Email (@laplateforme.io)</label>
+            <input type="email" id="email" required class="input input-bordered w-full bg-white/40 border-white/30 text-blue-900 placeholder:text-blue-700/50" placeholder="jean.dupont@laplateforme.io" />
+
+            <label class="label text-blue-900/80 mt-2 font-medium">Mot de passe</label>
+            <input type="password" id="password" required class="input input-bordered w-full bg-white/40 border-white/30 text-blue-900" placeholder="••••••••" />
+
+            <label class="label text-blue-900/80 mt-2 font-medium">Confirmer mot de passe</label>
+            <input type="password" id="confirm-password" required class="input input-bordered w-full bg-white/40 border-white/30 text-blue-900" placeholder="••••••••" />
+
+            <div id="error-msg" class="text-red-600 font-bold text-sm mt-4 hidden text-center bg-white/50 rounded p-1"></div>
+            <div id="success-msg" class="text-green-700 font-bold text-sm mt-4 hidden text-center bg-white/50 rounded p-1">Compte créé ! Redirection...</div>
+
+            <button type="submit" class="btn bg-blue-600 hover:bg-blue-700 text-white border-none mt-6 w-full shadow-lg">
+                S'inscrire
+            </button>
+
+            <div class="text-center mt-4">
+                <a href="index.html" class="link link-hover text-blue-900 font-medium text-sm">Déjà un compte ? Se connecter</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/register.js"></script>
+</body>
+</html>
