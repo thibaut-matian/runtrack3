@@ -75,11 +75,11 @@ if ($data && isset($data['results'])) {
                         <li><a>Séries</a></li>
                     </ul>
                 </div>
-                <a class="btn btn-ghost text-xl font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">CINETHEQUE</a>
+                <a  href= "http://localhost/runtrack3/jour08/jour02/#slide0" class="btn btn-ghost text-xl font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">CINETHEQUE</a>
             </div>
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal px-1 font-medium text-gray-200">
-                    <li><a class="hover:bg-white/10 hover:text-white transition rounded-lg">Accueil</a></li>
+                    <li><a href = "http://localhost/runtrack3/jour08/jour02/#slide0" class="hover:bg-white/10 hover:text-white transition rounded-lg">Accueil</a></li>
                     <li><a class="hover:bg-white/10 hover:text-white transition rounded-lg">Films</a></li>
                     <li><a class="hover:bg-white/10 hover:text-white transition rounded-lg">Séries</a></li>
                 </ul>
@@ -90,7 +90,7 @@ if ($data && isset($data['results'])) {
                 </form>
                 <div class="avatar placeholder">
                     <div class="bg-neutral text-neutral-content rounded-full w-8 ring ring-purple-500 ring-offset-base-100 ring-offset-2">
-                        <span class="text-xs">PH</span>
+                        <span class="text-xs">TM</span>
                     </div>
                 </div>
             </div>

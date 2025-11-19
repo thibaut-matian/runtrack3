@@ -193,9 +193,27 @@ document.addEventListener('DOMContentLoaded', function () {
       else r.classList.remove('btn-active');
     });
   }
-  // initialisation et écoute des changements
   if (pageRadios.length) {
     updatePaginationActive();
     pageRadios.forEach(r => r.addEventListener('change', updatePaginationActive));
+  }
+
+  // --- active state pour la sidebar (links) ---
+  const sidebarLinks = document.querySelectorAll('aside .menu a.sidebar-link');
+  if (sidebarLinks.length) {
+    // si aucun style actif présent, s'assurer que le premier soit marqué
+    if (!Array.from(sidebarLinks).some(a => a.classList.contains('bg-blue-500'))) {
+      sidebarLinks[0].classList.add('bg-blue-500', 'text-white');
+    }
+
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault(); // éviter la navigation pour voir l'état actif
+        // retirer les classes actives de tous
+        sidebarLinks.forEach(l => l.classList.remove('bg-blue-500', 'text-white'));
+        // ajouter sur le cliqué
+        link.classList.add('bg-blue-500', 'text-white');
+      });
+    });
   }
 });
