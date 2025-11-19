@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADBEUS - Coffee Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-pattern { 
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+
+<body class="bg-base-100">
+    <!-- Header -->
+    <header class="navbar bg-white shadow-sm border-b border-base-200 sticky top-0 z-50">
+        <div class="container mx-auto">
+            <div class="flex-1">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-bold text-gray-800 tracking-wider">ADBEUS</h1>
+                </div>
+            </div>
+            <div class="flex-none">
+                <ul class="menu menu-horizontal px-1 gap-2">
+                    <li><a href="#" class="text-gray-600 hover:text-amber-600 transition-colors font-medium">Menu</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-amber-600 transition-colors font-medium">About</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-amber-600 transition-colors font-medium">Blog</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-amber-600 transition-colors font-medium">Contact</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-amber-600 transition-colors font-medium">Location</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="hero min-h-[300px] bg-gradient-to-r from-amber-50 to-orange-50 hero-pattern rounded-2xl mb-12">
+            <div class="hero-content text-center">
+                <div class="max-w-md">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Coffee Story</h2>
+                    <p class="text-lg text-gray-600 mb-6">Découvrez nos cafés d'exception, torréfiés avec passion dans notre atelier artisanal.</p>
+                    <button class="btn btn-primary bg-amber-600 border-amber-600 hover:bg-amber-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                        </svg>
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Coffee Cards -->
+        <section class="mb-12">
+            <div class="flex items-center justify-between mb-8">
+                <h3 class="text-2xl font-bold text-gray-800">Our Coffee Shops</h3>
+                <div class="text-sm text-gray-500 font-medium">FEATURED SELECTIONS</div>
+            </div>
+
+            <!-- Large Featured Cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Café M Card -->
+                <div class="card bg-white shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <figure class="h-64 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-amber-100 to-orange-200 flex items-center justify-center relative">
+                            <!-- Coffee Cup Illustration -->
+                            <div class="relative">
+                                <div class="w-32 h-32 bg-amber-800 rounded-full shadow-2xl flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
+                                    <div class="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center">
+                                        <div class="w-12 h-12 bg-white rounded-full shadow-inner relative">
+                                            <div class="absolute inset-2 bg-amber-200 rounded-full"></div>
+                                            <div class="absolute top-2 left-3 w-6 h-6 bg-white rounded-full opacity-40"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Wood texture background -->
+                                <div class="absolute -z-10 inset-0 w-40 h-40 -translate-x-4 -translate-y-4 bg-gradient-to-br from-amber-600 to-amber-800 rounded-lg opacity-20"></div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="text-xs text-gray-400 uppercase tracking-wide mb-1">Premium</div>
+                                <h2 class="card-title text-xl font-bold text-gray-800">Café M</h2>
+                            </div>
+                            <div class="badge badge-outline badge-primary">Featured</div>
+                        </div>
+                        <p class="text-gray-600 mt-2">Un café d'exception aux notes florales et fruitées, torréfié artisanalement.</p>
+                        <div class="card-actions justify-between items-center mt-4">
+                            <div class="text-2xl font-bold text-amber-600">€4.50</div>
+                            <button class="btn btn-sm btn-primary bg-amber-600 border-amber-600 hover:bg-amber-700">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Village Café Card -->
+                <div class="card bg-white shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <figure class="h-64 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-red-100 via-green-100 to-blue-200 flex items-center justify-center relative">
+                            <!-- Colorful Coffee Setup -->
+                            <div class="relative flex items-center gap-4">
+                                <!-- Main Coffee Cup -->
+                                <div class="w-24 h-24 bg-red-600 rounded-full shadow-xl flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
+                                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
+                                        <div class="w-10 h-10 bg-white rounded-full shadow-inner relative">
+                                            <div class="absolute inset-1 bg-amber-200 rounded-full"></div>
+                                            <div class="absolute top-1 left-2 w-4 h-4 bg-white rounded-full opacity-50"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Colorful Elements -->
+                                <div class="absolute -top-6 -left-8 w-8 h-8 bg-yellow-400 rounded-lg transform rotate-12"></div>
+                                <div class="absolute -bottom-4 left-12 w-6 h-6 bg-green-500 rounded-full"></div>
+                                <div class="absolute top-8 right-4 w-4 h-8 bg-blue-600 rounded-full"></div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="text-xs text-gray-400 uppercase tracking-wide mb-1">Specialty</div>
+                                <h2 class="card-title text-xl font-bold text-gray-800">Village Café</h2>
+                            </div>
+                            <div class="badge badge-outline badge-secondary">New</div>
+                        </div>
+                        <p class="text-gray-600 mt-2">Une expérience café unique dans un cadre coloré et convivial.</p>
+                        <div class="card-actions justify-between items-center mt-4">
+                            <div class="text-2xl font-bold text-amber-600">€3.80</div>
+                            <button class="btn btn-sm btn-primary bg-amber-600 border-amber-600 hover:bg-amber-700">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Coffee Shops Grid -->
+        <section>
+            <div class="flex items-center justify-between mb-8">
+                <h3 class="text-2xl font-bold text-gray-800">Recent Coffee Shops</h3>
+                <div class="text-sm text-gray-500 font-medium">LATEST ADDITIONS</div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Small Coffee Card 1 -->
+                <div class="card bg-white shadow-md hover:shadow-lg transition-all duration-300 group">
+                    <figure class="h-48 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-stone-200 to-stone-300 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-amber-900 rounded-full shadow-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                                <div class="w-14 h-14 bg-stone-100 rounded-full flex items-center justify-center">
+                                    <div class="w-8 h-8 bg-white rounded-full shadow-inner relative">
+                                        <div class="absolute inset-1 bg-amber-300 rounded-full"></div>
+                                        <div class="absolute top-0.5 left-1.5 w-3 h-3 bg-white rounded-full opacity-60"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-4">
+                        <div class="text-xs text-gray-400 uppercase tracking-wide mb-1">Classic</div>
+                        <h3 class="card-title text-lg font-semibold text-gray-800">Espresso Bar</h3>
+                        <p class="text-sm text-gray-600">Café traditionnel aux arômes intenses.</p>
+                        <div class="flex justify-between items-center mt-3">
+                            <span class="text-lg font-bold text-amber-600">€2.90</span>
+                            <button class="btn btn-xs btn-outline btn-primary">Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small Coffee Card 2 -->
+                <div class="card bg-white shadow-md hover:shadow-lg transition-all duration-300 group">
+                    <figure class="h-48 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
+                            <div class="w-20 h-20 bg-orange-600 rounded-full shadow-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 relative">
+                                <div class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center border-2 border-orange-400">
+                                    <div class="w-8 h-8 bg-white rounded-full shadow-inner relative">
+                                        <div class="absolute inset-1 bg-orange-300 rounded-full"></div>
+                                        <div class="absolute top-0.5 left-1.5 w-3 h-3 bg-white rounded-full opacity-70"></div>
+                                    </div>
+                                </div>
+                                <!-- Handle -->
+                                <div class="absolute -right-2 top-3 w-3 h-6 border-2 border-orange-400 rounded-r-full"></div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-4">
+                        <div class="text-xs text-gray-400 uppercase tracking-wide mb-1">Premium</div>
+                        <h3 class="card-title text-lg font-semibold text-gray-800">Dark Roast</h3>
+                        <p class="text-sm text-gray-600">Torréfaction foncée aux notes chocolatées.</p>
+                        <div class="flex justify-between items-center mt-3">
+                            <span class="text-lg font-bold text-amber-600">€4.20</span>
+                            <button class="btn btn-xs btn-outline btn-primary">Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small Coffee Card 3 -->
+                <div class="card bg-white shadow-md hover:shadow-lg transition-all duration-300 group">
+                    <figure class="h-48 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-stone-300 to-stone-400 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-stone-500 rounded-full shadow-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                                <div class="w-14 h-14 bg-stone-200 rounded-full flex items-center justify-center">
+                                    <div class="w-8 h-8 bg-white rounded-full shadow-inner relative">
+                                        <div class="absolute inset-1 bg-stone-400 rounded-full"></div>
+                                        <div class="absolute top-0.5 left-1.5 w-3 h-3 bg-white rounded-full opacity-50"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-4">
+                        <div class="text-xs text-gray-400 uppercase tracking-wide mb-1">Smooth</div>
+                        <h3 class="card-title text-lg font-semibold text-gray-800">Latte Art</h3>
+                        <p class="text-sm text-gray-600">Café au lait crémeux avec art délicat.</p>
+                        <div class="flex justify-between items-center mt-3">
+                            <span class="text-lg font-bold text-amber-600">€3.50</span>
+                            <button class="btn btn-xs btn-outline btn-primary">Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-white mt-16 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-amber-600 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold">ADBEUS</h3>
+                    </div>
+                    <p class="text-stone-400">Votre destination café d'exception depuis 2020.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Menu</h4>
+                    <ul class="space-y-2 text-stone-400">
+                        <li><a href="#" class="hover:text-amber-400">Espresso</a></li>
+                        <li><a href="#" class="hover:text-amber-400">Latte</a></li>
+                        <li><a href="#" class="hover:text-amber-400">Cappuccino</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">About</h4>
+                    <ul class="space-y-2 text-stone-400">
+                        <li><a href="#" class="hover:text-amber-400">Notre Histoire</a></li>
+                        <li><a href="#" class="hover:text-amber-400">L'Équipe</a></li>
+                        <li><a href="#" class="hover:text-amber-400">Nos Valeurs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-stone-400">
+                        <li>123 Rue du Café</li>
+                        <li>75001 Paris</li>
+                        <li>+33 1 23 45 67 89</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-800 mt-8 pt-8 text-center text-stone-500">
+                <p>&copy; 2024 ADBEUS. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
