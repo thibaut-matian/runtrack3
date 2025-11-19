@@ -208,12 +208,269 @@ document.addEventListener('DOMContentLoaded', function () {
 
     sidebarLinks.forEach(link => {
       link.addEventListener('click', (e) => {
-        e.preventDefault(); // éviter la navigation pour voir l'état actif
-        // retirer les classes actives de tous
+        e.preventDefault(); 
         sidebarLinks.forEach(l => l.classList.remove('bg-blue-500', 'text-white'));
         // ajouter sur le cliqué
         link.classList.add('bg-blue-500', 'text-white');
       });
     });
   }
+
+  // --- Spinner : créer / positionner à droite du bouton "Rebooter le Monde" ---
+  function ensureInlineSpinner(targetEl) {
+    // retire ancien spinner inline s'il existe
+    const old = document.getElementById('inlineSpinner');
+    if (old) old.remove();
+
+    // trouver cible : si targetEl fourni, on l'affichera juste après, sinon fallback sur le bouton
+    const btn = targetEl || document.getElementById('btnRebooter');
+    const container = btn ? btn.parentNode : box;
+    if (!container) return null;
+
+    const spinner = document.createElement('div');
+    spinner.id = 'inlineSpinner';
+    Object.assign(spinner.style, {
+      display: 'inline-block',
+      width: '20px',
+      height: '20px',
+      borderRadius: '50%',
+      border: '3px solid rgba(0,0,0,0.12)',
+      borderTop: '3px solid #3b82f6',
+      animation: 'spin 1s linear infinite',
+      marginLeft: '10px',
+      verticalAlign: 'middle',
+    });
+
+    if (btn && btn.parentNode) {
+      btn.insertAdjacentElement('afterend', spinner);
+    } else {
+      container.appendChild(spinner);
+    }
+
+    return spinner;
+  }
+
+  // couleur aléatoire (HSL pour de belles couleurs)
+  function randomColor() {
+    const h = Math.floor(Math.random() * 360);
+    const s = 70; // saturation
+    const l = 50; // lightness
+    return `hsl(${h} ${s}% ${l}%)`;
+  }
+
+  // s'assurer que la keyframes existe (si ce n'est pas déjà fait)
+  if (!document.getElementById('spinnerKeyframes')) {
+    const style = document.createElement('style');
+    style.id = 'spinnerKeyframes';
+    style.textContent = `@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}`;
+    document.head.appendChild(style);
+  }
+
+  // exemple d'utilisation : dans les handlers de submit / miniForm, appeler ensureSpinner(document.getElementById('btnRebooter'))
+  // --- Spinner et validation du formulaire ---
+  // crée keyframes spin si pas présent
+  if (!document.getElementById('spinnerKeyframes')) {
+    const style = document.createElement('style');
+    style.id = 'spinnerKeyframes';
+    style.textContent = `
+      @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // assure la présence d'un spinner dans le jumbotron (box)
+  function ensureSpinner() {
+    if (!box) return null;
+    let spinner = document.getElementById('jumbotronSpinner');
+    if (!spinner) {
+      spinner = document.createElement('div');
+      spinner.id = 'jumbotronSpinner';
+      Object.assign(spinner.style, {
+        width: '28px',
+        height: '28px',
+        borderRadius: '50%',
+        border: '4px solid rgba(0,0,0,0.12)',
+        borderTop: '4px solid #3b82f6',
+        animation: 'spin 1s linear infinite',
+        position: 'absolute',
+        top: '12px',
+        right: '12px',
+        zIndex: '20',
+      });
+      // s'assurer que le container peut positionner l'élément absolu
+      if (getComputedStyle(box).position === 'static') box.style.position = 'relative';
+      box.appendChild(spinner);
+    }
+    return spinner;
+  }
+
+  // handler submit du formulaire : change couleur du spinner si email + password non vides
+  const form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // on empêche navigation pour voir l'effet
+      const emailEl = form.querySelector('input[type="email"]');
+      const passEl = form.querySelector('input[type="password"]');
+      const email = emailEl ? emailEl.value.trim() : '';
+      const pass = passEl ? passEl.value.trim() : '';
+
+      if (email && pass) {
+        // placer le spinner à droite du bouton Rebooter
+        const spinner = ensureInlineSpinner(document.getElementById('btnRebooter'));
+        if (spinner) {
+          spinner.style.borderTopColor = randomColor();
+        }
+        if (box) {
+          box.classList.add('animate-pulse');
+          setTimeout(() => box.classList.remove('animate-pulse'), 400);
+        }
+      } else {
+        alert('Remplis un email et un mot de passe non vides pour valider.');
+      }
+    });
+  }
+
+  if (miniForm) {
+    miniForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = (miniForm.querySelector('input[type="email"]')?.value || '').trim();
+      const pass = (miniForm.querySelector('input[type="password"]')?.value || '').trim();
+      if (email && pass) {
+        // idem : spinner inline à côté du bouton Rebooter
+        const spinner = ensureInlineSpinner(document.getElementById('btnRebooter'));
+        if (spinner) spinner.style.borderTopColor = randomColor();
+        if (box) {
+          box.classList.add('animate-pulse');
+          setTimeout(() => box.classList.remove('animate-pulse'), 400);
+        }
+      } else {
+        alert('Remplis un email et un mot de passe non vides pour valider.');
+      }
+    });
+  }
+
 });
+
+(function () {
+  // sequence clavier D,G,C (insensible à la casse)
+  const seq = ['d','g','c'];
+  let ptr = 0;
+
+  function resetSeq() { ptr = 0; }
+
+  function showSummaryModal() {
+    const form = document.querySelector('form');
+    const modalId = 'summaryModal';
+    let modal = document.getElementById(modalId);
+
+    // créer/modal si besoin
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = modalId;
+      Object.assign(modal.style, {
+        position: 'fixed',
+        left: '16px',
+        bottom: '16px',
+        width: '340px',
+        maxWidth: 'calc(100% - 32px)',
+        background: '#ffffff',
+        color: '#111827',
+        padding: '12px 14px',
+        borderRadius: '8px',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.18)',
+        zIndex: 99999,
+        fontSize: '14px',
+        lineHeight: '1.35'
+      });
+
+      modal.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Récapitulatif</strong>
+          <button id="summaryClose" aria-label="Fermer" style="background:transparent;border:0;font-size:16px;cursor:pointer">✕</button>
+        </div>
+        <div id="summaryContent" style="max-height:320px;overflow:auto"></div>
+      `;
+      document.body.appendChild(modal);
+
+      // fermer
+      modal.querySelector('#summaryClose').addEventListener('click', () => {
+        modal.remove();
+      });
+
+      // ESC ferme
+      window.addEventListener('keydown', function onEsc(e) {
+        if (e.key === 'Escape') {
+          const m = document.getElementById(modalId);
+          if (m) m.remove();
+        }
+      });
+    }
+
+    const content = modal.querySelector('#summaryContent');
+
+    if (!form) {
+      content.innerHTML = `<p style="color:#6b7280">Aucun formulaire trouvé sur la page.</p>`;
+      return;
+    }
+
+    // Collecte des champs importants (ou tous les inputs)
+    const fields = Array.from(form.querySelectorAll('input, textarea, select'))
+      .filter(el => el.type !== 'submit' && el.type !== 'button' && el.type !== 'hidden');
+
+    if (fields.length === 0) {
+      content.innerHTML = `<p style="color:#6b7280">Aucun champ récupérable.</p>`;
+      return;
+    }
+
+    const rows = fields.map(el => {
+      const name = el.name || el.id || el.placeholder || el.getAttribute('aria-label') || 'champ';
+      let value = '';
+      if (el.type === 'password') {
+        value = el.value ? '•'.repeat(Math.min(8, el.value.length)) : '(vide)';
+      } else if (el.type === 'checkbox') {
+        value = el.checked ? '✓' : '✗';
+      } else if (el.type === 'radio') {
+        if (!el.checked) return null; // n'affiche que les radios cochées
+        value = el.value || 'sélectionné';
+      } else {
+        value = el.value ? el.value : '(vide)';
+      }
+      return `<div style="margin-bottom:8px"><div style="font-weight:600;color:#374151">${escapeHtml(name)}</div><div style="color:#6b7280;word-break:break-word">${escapeHtml(value)}</div></div>`;
+    }).filter(Boolean);
+
+    content.innerHTML = rows.join('');
+  }
+
+  // petit helper pour échapper le HTML
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  // ignorer la saisie si on est dans un champ (pour ne pas casser la frappe)
+  document.addEventListener('keydown', function (e) {
+    const active = document.activeElement;
+    const ignoreTags = ['INPUT','TEXTAREA'];
+    if (active && (ignoreTags.includes(active.tagName) || active.isContentEditable)) {
+      // si l'utilisateur tape dans un champ, on n'intercepte pas la séquence
+      return;
+    }
+
+    const k = e.key.toLowerCase();
+    if (k === seq[ptr]) {
+      ptr++;
+      if (ptr === seq.length) {
+        // séquence complète
+        showSummaryModal();
+        resetSeq();
+      }
+    } else {
+      // si la touche appuyée est la première de la séquence, on la considère comme nouveau départ
+      ptr = (k === seq[0]) ? 1 : 0;
+    }
+  });
+})();

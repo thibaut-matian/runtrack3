@@ -192,21 +192,21 @@
             </div>
 
             <div class="md:col-span-4">
-                <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border p-4">
-                    <legend class="fieldset-legend">Login</legend>
+                <form id="miniForm" class="space-y-3">
+                    <div class="form-control">
+                        <label class="label"><span class="label-text">Email</span></label>
+                        <input type="email" name="miniEmail" placeholder="email@example.com" class="input input-bordered w-full" />
+                    </div>
 
-                    <label class="label">Email</label>
-                    <input type="email" class="input w-full" placeholder="Email" />
+                    <div class="form-control">
+                        <label class="label"><span class="label-text">Mot de passe</span></label>
+                        <input type="password" name="miniPassword" placeholder="Mot de passe" class="input input-bordered w-full" />
+                    </div>
 
-                    <label class="label">Password</label>
-                    <input type="password" class="input w-full" placeholder="Password" />
-
-                    <label class="label cursor-pointer flex items-center gap-2">
-                        <input type="checkbox" checked="checked" class="checkbox" />
-                        <span class="label-text">Check me out</span>
-                    </label>
-                    <button class="btn btn-active btn-success w-full">Success</button>
-                </fieldset>
+                    <div class="form-control">
+                        <button type="submit" class="btn btn-success">Valider</button>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
