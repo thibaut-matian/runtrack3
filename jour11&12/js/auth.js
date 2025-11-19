@@ -1,117 +1,97 @@
 document.addEventListener('DOMContentLoaded', () => {
-    initDatabase();
-    
-    const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-        loginForm.addEventListener('submit', handleLogin);
-    }
+    initializeDefaultUsersInStorage();
+    setupLoginForm();
 });
 
-// Fonction pour charger le JSON dans le LocalStorage si vide
-async function initDatabase() {
-    if (!localStorage.getItem('users')) {
+async function initializeDefaultUsersInStorage() {
+    const existingUsers = localStorage.getItem('users');
+    
+    if (!existingUsers) {
         try {
-            // On va chercher le fichier JSON
-            const response = await fetch('js/data.json'); 
-            const users = await response.json();
-            
-            // On sauvegarde dans le navigateur (en texte)
-            localStorage.setItem('users', JSON.stringify(users));
-            console.log("Base de données initialisée avec succès !");
+            const response = await fetch('js/data.json');
+            const usersList = await response.json();
+            localStorage.setItem('users', JSON.stringify(usersList));
         } catch (error) {
-            console.error("Erreur lors du chargement du JSON :", error);
+            console.error("Erreur chargement data.json", error);
         }
     }
 }
 
-// Fonction de gestion du Login
-function handleLogin(e) {
-    e.preventDefault(); // Empêche la page de se recharger
+function setupLoginForm() {
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', onLoginFormSubmit);
+        setupFleeingButtonEffect();
+    }
+}
 
-    const emailInput = document.getElementById('email').value;
-    const passwordInput = document.getElementById('password').value;
-    const errorMsg = document.getElementById('error-msg');
+function onLoginFormSubmit(event) {
+    event.preventDefault();
 
-    // 1. Vérification basique du domaine (demandé dans le sujet pour l'inscription)
-    if (!isValidDomain(emailInput)) {
-        showError("Seuls les emails @laplateforme.io sont autorisés.");
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const userEmail = emailInput.value.trim();
+    const userPassword = passwordInput.value.trim();
+
+    if (!isEmailDomainValid(userEmail)) {
+        displayErrorMessage("Seuls les emails @laplateforme.io sont autorisés.");
         return;
     }
 
-    // 2. Récupération des utilisateurs depuis le LocalStorage
-    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const authenticatedUser = findUserInStorage(userEmail, userPassword);
 
-    // 3. Recherche de l'utilisateur
-    const user = users.find(u => u.email === emailInput && u.password === passwordInput);
-
-    if (user) {
-        // Connexion réussie !
-        // On stocke l'utilisateur connecté en session (se perd si on ferme le navigateur)
-        sessionStorage.setItem('currentUser', JSON.stringify(user));
-        
-        // Redirection selon le rôle (à créer plus tard)
-        alert(`Bienvenue ${user.prenom} ! Vous êtes connecté en tant que ${user.role}.`);
-        
-        // Exemple de redirection future :
-        // if(user.role === 'admin') window.location.href = 'admin.html';
-        // else window.location.href = 'calendrier.html';
+    if (authenticatedUser) {
+        sessionStorage.setItem('currentUser', JSON.stringify(authenticatedUser));
+        window.location.href = 'dashboard.html';
     } else {
-        showError("Email ou mot de passe incorrect.");
+        displayErrorMessage("Email ou mot de passe incorrect.");
     }
 }
 
-// Vérifie si l'email finit par @laplateforme.io
-function isValidDomain(email) {
+function isEmailDomainValid(email) {
     return email.endsWith('@laplateforme.io');
 }
 
-// Affiche l'erreur dans la div prévue
-function showError(message) {
-    const errorDiv = document.getElementById('error-msg');
-    errorDiv.textContent = message;
-    errorDiv.classList.remove('hidden');
+function findUserInStorage(email, password) {
+    const usersJSON = localStorage.getItem('users');
+    const usersList = JSON.parse(usersJSON) || [];
+    return usersList.find(user => user.email === email && user.password === password);
 }
 
-
-
-
-// --- LOGIQUE DU BOUTON FUYARD ---
-const loginBtn = document.getElementById('loginBtn');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-
-
-function areFieldsEmpty() {
-    return emailInput.value.trim() === "" || passwordInput.value.trim() === "";
+function displayErrorMessage(message) {
+    const errorContainer = document.getElementById('error-msg');
+    errorContainer.textContent = message;
+    errorContainer.classList.remove('hidden');
 }
 
-loginBtn.addEventListener('mouseover', () => {
-    // Si les champs sont vides, le bouton s'enfuit
-    if (areFieldsEmpty()) {
-        // On calcule un déplacement aléatoire entre -150px et +150px
-        // Tu peux augmenter ces valeurs si tu veux qu'il parte plus loin
-        const x = Math.random() * 300 - 150; 
-        const y = Math.random() * 300 - 150;
-        
-        // On applique le style directement
-        loginBtn.style.transform = `translate(${x}px, ${y}px)`;
-        
-        // Petit changement de couleur pour narguer (optionnel)
-        loginBtn.classList.replace('bg-blue-600', 'bg-red-500');
-        loginBtn.innerText = "Remplis d'abord !";
+function setupFleeingButtonEffect() {
+    const loginBtn = document.getElementById('loginBtn');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+    function areLoginFieldsEmpty() {
+        return emailInput.value.trim() === "" || passwordInput.value.trim() === "";
     }
-});
 
-// Remettre le bouton en place quand l'utilisateur commence à écrire
-[emailInput, passwordInput].forEach(input => {
-    input.addEventListener('input', () => {
-        if (!areFieldsEmpty()) {
-            // On remet le bouton à sa place d'origine (0,0)
-            loginBtn.style.transform = 'translate(0, 0)';
+    loginBtn.addEventListener('mouseover', () => {
+        if (areLoginFieldsEmpty()) {
+            const randomX = Math.random() * 300 - 150;
+            const randomY = Math.random() * 300 - 150;
             
-            // On remet la couleur et le texte d'origine
-            loginBtn.classList.replace('bg-red-500', 'bg-blue-600');
-            loginBtn.innerText = "Se connecter";
+            loginBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            loginBtn.classList.replace('bg-blue-600', 'bg-red-500');
+            loginBtn.innerText = "Remplis d'abord !";
         }
     });
-});
+
+    const inputs = [emailInput, passwordInput];
+    inputs.forEach(input => {
+        input.addEventListener('input', () => {
+            if (!areLoginFieldsEmpty()) {
+                loginBtn.style.transform = 'translate(0, 0)';
+                loginBtn.classList.replace('bg-red-500', 'bg-blue-600');
+                loginBtn.innerText = "Se connecter";
+            }
+        });
+    });
+}
