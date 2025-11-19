@@ -120,3 +120,82 @@ function showBaseText() {
 // Clics
 btn?.addEventListener('click', showRandomQuote);
 document.getElementById('btnReset')?.addEventListener('click', showBaseText);
+
+// Pagination -> change le contenu du jumbotron selon la page sélectionnée
+// contenu au choix pour chaque "page" (4 éléments pour 4 radios)
+const pages = [
+  {
+    title: "Découverte",
+    paragraphs: [
+      "Explorez les mystères du monde : paysages, cultures et histoires.",
+      "Chaque découverte élargit notre compréhension et nourrit la curiosité."
+    ],
+    footer: "— Exploration, 2025"
+  },
+  {
+    title: "Science",
+    paragraphs: [
+      "La science nous offre des méthodes pour tester nos idées et expliquer des phénomènes.",
+      "Elle se construit par observation, mesure et réplication."
+    ],
+    footer: "— Institut des Sciences"
+  },
+  {
+    title: "Art & Culture",
+    paragraphs: [
+      "L'art reflète nos sociétés et nos émotions à travers des formes variées.",
+      "Musique, peinture, littérature : autant de portes vers l'imaginaire."
+    ],
+    footer: "— Conservatoire Culturel"
+  },
+  {
+    title: "Technologie",
+    paragraphs: [
+      "La technologie transforme nos usages et crée de nouvelles opportunités.",
+      "Elle demande responsabilité et éthique pour servir le bien commun."
+    ],
+    footer: "— Lab Innov"
+  }
+];
+
+function renderPageContent(page) {
+  if (!box) return;
+  const paras = page.paragraphs.map(p => `<p class="text-gray-600 mb-4 leading-relaxed">${p}</p>`).join("\n");
+  box.innerHTML = `
+    <h3 class="text-xl font-semibold mb-2">${page.title}</h3>
+    ${paras}
+    <hr class="border-t border-gray-300 my-6">
+    <p class="text-sm italic text-gray-600">${page.footer}</p>
+  `;
+}
+
+
+const paginationRadios = document.querySelectorAll('input[name="options"]');
+if (paginationRadios.length) {
+  paginationRadios.forEach((radio, i) => {
+    radio.addEventListener('change', () => {
+      if (radio.checked) {
+        renderPageContent(pages[i] || pages[0]);
+      }
+    });
+  });
+
+  const checked = Array.from(paginationRadios).findIndex(r => r.checked);
+  if (checked >= 0) renderPageContent(pages[checked]);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  // --- indicateur actif pour la pagination (join radios) ---
+  const pageRadios = document.querySelectorAll('input[name="options"]');
+  function updatePaginationActive() {
+    pageRadios.forEach(r => {
+      if (r.checked) r.classList.add('btn-active');
+      else r.classList.remove('btn-active');
+    });
+  }
+  // initialisation et écoute des changements
+  if (pageRadios.length) {
+    updatePaginationActive();
+    pageRadios.forEach(r => r.addEventListener('change', updatePaginationActive));
+  }
+});
