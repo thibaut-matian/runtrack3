@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "email": "admin@laplateforme.io",
+        "password": "admin",
+        "role": "admin",
+        "prenom": "Super",
+        "nom": "Admin"
+    },
+    {
+        "id": 2,
+        "email": "modo@laplateforme.io",
+        "password": "modo",
+        "role": "moderator",
+        "prenom": "Jean",
+        "nom": "Modo"
+    },
+    {
+        "id": 3,
+        "email": "etudiant@laplateforme.io",
+        "password": "student",
+        "role": "student",
+        "prenom": "Sophie",
+        "nom": "Learn"
+    }
+]
