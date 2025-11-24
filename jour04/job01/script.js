@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bouton.addEventListener('click', () => {
         
         //  Lancer la requête Fetch
-        fetch('expression.txt')
-            .then(response => {
+        fetch('expression.txt').then(response => {
                 if (!response.ok) {
                     throw new Error('Le fichier n\'a pas pu être chargé.');
                 }
